@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        body {
+            margin: 0;
+        }
+        .mydiv {
+            height: 110px;
+            width: 110px;
+            background-color: blue;
+position: absolute;
+left: 0;
+top: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all .4s, opacity 2s ;
+opacity: 1;
+        }
+        .mydiv.opac {
+            opacity: 0 !important;
+        }
+
+.graund{
+    border: 9px solid rgb(100, 4, 4);
+    transform: rotateZ(45deg);
+}
+.round{
+    width: 80px;
+    height: 50px;
+    margin-left: 50%;
+    border-radius: 50%;
+    border: 10px solid blue;
+
+    transition: all 4s ease-in 2s;
+}
+.round_down{
+    transform: translateY(700px) skewY(180deg);
+    background-color: blue;
+}
+
+.hi{
+    position: fixed;
+    background-color: yellow;
+    text-align: center;
+    width: 140px;
+    padding: 40px;
+    font-size: 40px;
+    right: 0;
+    opacity: 1;
+    margin-top: 120px;
+
+
+    transition: all 4s ease-in 2s;
+
+}
+.bye{
+    position: fixed;
+    height: 100px;
+    width: 140px;
+    background-color:green;
+    right: -17%;
+    transition: all 4s ease-in 2s;
+}
+
+.bye_in{
+    transform:  translateX(-100%) rotateZ(180deg) translateY(100%);
+}
+
+.hi.sey_in {
+
+    transform:  translateX(100%) rotateZ(-90deg) translateY(100%);
+    opacity: .2;
+    
+    
+}
+
+
+
+.allbutton{
+    width: 50px;
+    height: 50px;
+    /* transform: rotateZ(45deg); */
+    display: flex;
+    flex-wrap: wrap;
+}
+button {
+    border: 2px solid black;
+    height: 50%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    z-index: 5;
+   
+}
+
+
+.main{
+    width: 50px;
+    height: 30px;
+    margin-left: 50%;
+}
+p{
+    /* background-color: black; */
+    z-index: 2;
+    transform: rotateZ(45deg);
+    
+}
+.top{
+    transform: rotateZ(180deg);
+    border-left: 5px solid black;
+}
+.right{
+    transform: rotateZ(270deg);
+    border-top: 5px solid black;
+}
+
+.left {
+   transform: rotateZ(90deg); 
+   border-top: 5px solid black;
+}
+.bottom{
+    border-left: 5px solid rgb(0, 0, 0);
+    
+}
+
+
+
+        .mydiv.active {
+            background-color: blueviolet;
+        }
+      
+        
+        .allbutton{
+        
+            border: 5px solid yellow;       
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <button class="main"></button>
+    <div class="hi">Hello! </div>
+    <!-- <div class="bye"></div>
+    <div class="round"></div> -->
+<div class="all_img">
+
+</div>
+
+    <script src="defoult.js"></script>
+
+    <script src="./window.js"></script>
+   
+    <script src="./js.js"></script>
+     <script src="./collections.js"></script>
+</body>
+</html>
