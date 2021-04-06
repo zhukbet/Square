@@ -36,7 +36,7 @@ item.title=false;
 item.isNewElem && (item.isNewElem =false)
 
 
-  return `<div title="${title}" style="width: ${item.width}px; heigth: ${item.height}px; background: #${item.color}; top: ${item.top}%; left: ${item.left}%;" class="mydiv ${class_name}";  > 
+  return `<div title="${title}" id="${index}" style="width: ${item.width}px; height: ${item.height}px; background: ${item.color}; top: ${item.top}%; left: ${item.left}%;" class="mydiv ${class_name}";  > 
    <div class="graund">
    <div class="allbutton">
        <button class="top"><p>></p></button>
@@ -60,14 +60,13 @@ const newObj = {
         left: groundtwice(getRandom(), P.W, 110),
         width : 110,
         height:110,
-        color: getRandom(100,999),
+        color: 'rgb'+"("+getRandom(1,255)+","+getRandom(1,255)+","+getRandom(1,255)+")",
         isNewElem: true,
         title:true
 }
 
 Obj_.push(newObj)
 NewObj_()
-
 
 }
 
