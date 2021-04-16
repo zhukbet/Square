@@ -22,21 +22,22 @@ const groundtwice=(position_graund, w_or_h, global)=>{
 
 const NewObj_ = ()=> {
 
-
+//console.group('wi')
 allimg.innerHTML = Obj_.map((item,index)=>{
   
   const class_name = item.isNewElem ? 'opac' : '';
-  
+ // console.log(item.width);
 // (index===Obj_.length-1)
 // ?item.title=true
 // :item.title=false;
 
 const title = item.title ? 'active' : '';
-item.title=false;
+Obj_[index].title=false;
 item.isNewElem && (item.isNewElem =false)
+//console.log(title);
 
 
-  return `<div title="${title}" id="${index}" style="width: ${item.width}px; height: ${item.height}px; background: ${item.color}; top: ${item.top}%; left: ${item.left}%;" class="mydiv ${class_name}";  > 
+  return `<div title="${title}" id="${index}" style="width: ${item.width}px; height: ${item.height}px; background: ${item.color}; top: ${item.top}%; left: ${item.left}%;" class="mydiv ${class_name} ${title}"> 
    <div class="graund">
    <div class="allbutton">
        <button class="top"><p>></p></button>
@@ -51,9 +52,10 @@ item.isNewElem && (item.isNewElem =false)
 
 
 all_function()
+//console.groupEnd()
 }
 
-const greateNewObj = ()=>{
+const greateNewObj = ()=>{ 
 const newObj = {
     _id: id()+'Item',
         top: groundtwice(getRandom(), P.H, 110),
