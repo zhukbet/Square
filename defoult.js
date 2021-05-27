@@ -15,6 +15,6 @@ const id=()=> ++counter
 
 const allimg=document.querySelector(".all_img")
 const mainbutton=document.querySelector(".main")
-const Obj_ = [
+let Obj_ = [
    
 ]

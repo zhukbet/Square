@@ -8,6 +8,7 @@
 
         body {
             margin: 0;
+            background-color: black;
         }
         .mydiv {
             height: 110px;
@@ -21,6 +22,17 @@ align-items: center;
 justify-content: center;
 transition: all .4s, opacity 2s ;
 opacity: 1;
+        }
+        .mydiv{
+            box-shadow: 1px 1px 9px rgb(255, 255, 255);
+        }
+       
+        .mydiv.active {
+            box-shadow: 2px 3px 18px rgb(238, 241, 18);
+        }
+        .mydiv:hover {
+            box-shadow: 2px 3px 18px rgb(238, 241, 18);
+            z-index: 30;
         }
         .mydiv.opac {
             opacity: 0 !important;
@@ -85,7 +97,6 @@ opacity: 1;
 .allbutton{
     width: 50px;
     height: 50px;
-    /* transform: rotateZ(45deg); */
     display: flex;
     flex-wrap: wrap;
 }
@@ -101,12 +112,13 @@ button {
 
 
 .main{
+    z-index: 11;
+    position: fixed;
     width: 50px;
     height: 30px;
     margin-left: 50%;
 }
 p{
-    /* background-color: black; */
     z-index: 2;
     transform: rotateZ(45deg);
     
@@ -131,23 +143,28 @@ p{
 
 
 
-        .mydiv.active {
-            background-color: blueviolet;
-        }
       
         
         .allbutton{
             border: 5px solid yellow;       
         }
 
+
+
+.hi span{
+    font-size: 25px;
+}
     </style>
     <title>Document</title>
 </head>
 <body>
     <button class="main"></button>
-    <div class="hi">Hello! </div>
-    <!-- <div class="bye"></div>
-    <div class="round"></div> -->
+    <div class="hi">Hello!
+    <span>Instructions:</span>
+    <span>Press the button to get the cube.</span>
+    <span>Click on the arrows or press the key to change the cube.</span>
+    </div>
+
 <div class="all_img">
 
 </div>

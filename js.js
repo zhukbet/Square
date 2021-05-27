@@ -43,10 +43,14 @@ const ground = (position_graund, w_or_h,div) => {
 }
 
 const randomPosition = div => {
-  const position=ground(getRandom(), P.H, div) + "%"
-  div.style.top = position
-
-  div.style.left = ground(getRandom(), P.W, div) + "%"
+  const O=Obj_[div.id]
+  const raTop=ground(getRandom(), P.H, div)
+  div.style.top =  raTop+ "%"
+  O.top= raTop
+  const raLeft=ground(getRandom(), P.W, div)
+  div.style.left = raLeft + "%"
+  O.left=raLeft
+  
 }
 
 const all_function = () => {
@@ -56,6 +60,7 @@ const all_function = () => {
 
   for (const div of div_all) {
 const O =  Obj_[div.id]
+
 
     setTimeout(() => div.classList.remove("opac"), 400)
 
@@ -68,11 +73,8 @@ const O =  Obj_[div.id]
 
     div.addEventListener("dblclick", function (e) {
 
-
-      if (e.target.className === "mydiv") {
-   
-        
-        // console.log(div.id)
+      console.log(e.target.className);
+      if (e.target.className === "mydiv" || e.target.className === "mydiv active") {
         
         const color='rgb' + "(" + getRandom(1, 255) + "," + getRandom(1, 255) + "," + getRandom(1, 255) + ")"
         e.target.style.background=color;
@@ -81,7 +83,7 @@ const O =  Obj_[div.id]
       if (e.target.className === "graund") {
         randomPosition(div)
       }
-
+      
 
     })
 
@@ -91,104 +93,88 @@ const O =  Obj_[div.id]
 
 
    
-
-
-    
-//       document.addEventListener("keydown", function (e) {
-
-
-
-// //
-//       switch (e.key) {
-
-//         case "ArrowDown":
-// console.log(Obj_); 
-//           // e.altKey
-//           //   ? div.style.height = rate(side(P.H) + 5, P.H) + "px"
-//           //   : div.style.top = ground(getElem_num(div.style.top) + 2, P.H) + '%'
-
-//           if(e.altKey){ 
-
-//             const Obj_height=rate(side(P.H) + 5, P.H) 
-//             div.style.height = Obj_height+ "px"
-//            O.height=Obj_height
-//           //  console.log(O);
-//           }else {
-//             div.style.top = ground(getElem_num(div.style.top) + 2, P.H) + '%'
-//           }
-
-//           break;
-//         case "ArrowUp":
-//           // e.altKey
-//           //   ? div.style.height = rate(side(P.H) - 5, P.H) + "px"
-//           //   : div.style.top = ground(getElem_num(div.style.top) - 2, P.H) + '%'
-//          if(e.altKey){
-//            const Obj_height=rate(side(P.H)-5,P.H)
-//            div.style.height=Obj_height+"px"
-//            O.height=Obj_height
-//          }else{
-//           div.style.top = ground(getElem_num(div.style.top) - 2, P.H) + '%'
-//          }
-
-//           break;
-//         case "ArrowRight":
-//           // e.altKey
-//           //   ? div.style.width = rate(side(P.W) + 5, P.W) + "px"
-//           //   : div.style.left = ground(getElem_num(div.style.left) + 2, P.W) + '%'
-//           if(e.altKey){
-//             const Obj_width=rate(side(P.W)+5,P.W);
-//             div.style.width=Obj_width+"px"
-//             O.width=Obj_width
-//           }else{
-//             div.style.left = ground(getElem_num(div.style.left) + 2, P.W) + '%'
-//           }
-
-//           break;
-//         case "ArrowLeft":
-//           // e.altKey
-//           //   ? div.style.width = rate(side(P.W) - 5, P.W) + "px"
-//           //   : div.style.left = ground(getElem_num(div.style.left) - 2, P.W) + '%'
-//           if(e.altKey){ 
-//             const Obj_width=rate(side(P.W)-5,P.W);
-//             div.style.width=Obj_width+"px"
-//             O.width=Obj_width
-//           }else{
-//             div.style.left = ground(getElem_num(div.style.left) -2, P.W) + '%'
-//           }
-//           break;
-//         case "Enter":
-//           randomPosition()
-//           break;
-//       }
-//     })
-
-
-  
    
 
    
+
+div.oncontextmenu = ()=> false
+
+ div.addEventListener("contextmenu",e=>{
+
+Obj_ = Obj_.filter(filt=>{
+  if(filt._id!==O._id){
+    return true
+  }
+  console.log(filt)
+  div.remove()
+
+  })
+  })
+
+
+
 
     div.addEventListener("click", function (e) {
+      if(e.target.className==="mydiv"){
+        O.title = true
+        NewObj_()
+        
+      }
 
 
       switch (e.target.closest('button')?.className) {
         case "top":
-
-          div.style.height = rate(side(P.H, div) - 5, P.H) + "px"
-
+          const stTop=rate(side(P.H, div) - 5, P.H)
+          div.style.height =  stTop+ "px"
+        O.height=stTop
           break;
         case "right":
-          div.style.width = rate(side(P.W, div) + 5, P.W) + "px"
+          const stRight=rate(side(P.W, div) + 5, P.W) 
+          div.style.width = stRight +"px"
+        O.width=stRight
           break;
         case "bottom":
-          div.style.height = rate(side(P.H, div) + 5, P.H) + "px"
+          const stBot=rate(side(P.H, div) + 5, P.H)
+          div.style.height = stBot + "px"
+        O.height=stBot
           break;
         case "left":
-          div.style.width= rate(side(P.W, div)-5, P.W) + "px"
+          const stLeft=rate(side(P.W, div)-5, P.W)
+          div.style.width=  stLeft+ "px"
+          O.width=stLeft
           break;
       }
     })
   }
 }
 
+const obj_2  = [
+  {
+    id: 121,
+  title : 'title',
+  name: 'Assf'
+  },
+  {
+    id: 122,
+  title : 'title_2',
+  name: 'Assf_3'
+  },
+  {
+    id: 123,
+  title : 'title_2',
+  name: 'Assf_3'
+  },
+]
+
+const C = obj_2[1]
+C.id = 88;
+
+const tor = {
+  id: 121,
+  title : 'title',
+  name: 'Assf'
+}
+const cop_tpr = tor
+
+cop_tpr.name = 'copAss'
 
